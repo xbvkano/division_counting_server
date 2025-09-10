@@ -299,8 +299,7 @@ var getExperimentEntryById = function (req, res, next) { return __awaiter(void 0
                     return [2 /*return*/];
                 }
                 return [4 /*yield*/, prisma.experiment_data.findUnique({
-                        where: { id: id },
-                        include: { name: true }
+                        where: { id: id }
                     })];
             case 1:
                 entry = _a.sent();
@@ -330,9 +329,7 @@ var getAllExperimentEntriesCsv = function (_req, res, next) { return __awaiter(v
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, prisma.experiment_data.findMany({
-                        include: { name: true }
-                    })];
+                return [4 /*yield*/, prisma.experiment_data.findMany()];
             case 1:
                 data = _a.sent();
                 csv = (0, sync_1.stringify)(data, { header: true });
